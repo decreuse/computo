@@ -39,5 +39,12 @@ parse:
 sphinx:
   extra_extensions:
     - sphinx_proof
-    #- sphinx_tojupyter
     - sphinx_jupyterbook_latex
+  config:
+    latex_engine: pdflatex
+    language: en
+    mathjax_config:
+      TeX:
+        Macros:
+          "norm" : ["{\\Vert#1\\Vert}",1]
+          "abs" : ["{\\left|#1\\right|}",1]

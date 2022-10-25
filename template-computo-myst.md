@@ -30,6 +30,44 @@ Es sei $U\subset \C$ offen und seien $\gamma_0,\gamma_1:[a,b]\to U$ zwei Wege. F
 dann nennen wir $\gamma_0$ und $\gamma_1$ **benachbart**.
 ````
 
+````{prf:lemma} Nachbarschaftslemma
+:label: lem:closelem
+
+Es sei $U\subset\C$ offen, dann existiert ein $\varepsilon>0$, s.d. falls für zwei Wege $\gamma_0,\gamma_1:[a,b]\to U$ gilt
+
+```{math}
+\abs{\gamma_0 - \gamma_1} < \varepsilon
+```
+
+so folgt schon, dass $\gamma_0,\gamma_1$ benachbart sind.
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`neeb_2017`.
+````
+
+Für benachbarte Wege erhalten wir nun das folgende Resultat, welches eine Vorstufe zum Integralsatz von Cauchy darstellt.
+
+````{prf:lemma}
+:label: lem:closepath
+
+Es $U\subset\C$ eine offene Menge und $f:U\to\C$ eine holomorphe Funktion, weiterhin seien $\gamma_0,\gamma_1:[a,b]\to U$ zwei benachbarte Weg die eine der folgenden Bedingungen erfüllen
+
+1. die Wege haben gleiche Anfangs- und Endpunkte, oder
+
+2. die Wege sind geschlossen.
+
+Dann gilt
+
+```{math}
+\int_{\gamma_0} f(z)\, dz = \int_{\gamma_1} f(z)\, dz.
+```
+````
+
+````{prf:proof}
+Siehe z.B. {cite:p}`neeb_2007` Lemma 4.5.
+````
+
 
 
 ```{bibliography}
