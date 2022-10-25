@@ -171,7 +171,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/computorg/template-computo-myst/master?urlpath=tree/template-computo-myst.md"
+        <a href="https://mybinder.org/v2/gh/decreuse/computo/master?urlpath=tree/template-computo-myst.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,9 +372,9 @@ specifying a region and a frequency band, we see that the antennas
 locations do seem to exhibit some repulsion (see
 Figure <a class="reference external" href="#fig:antennas">[fig:antennas]</a>{reference-type=”ref”
 reference=”fig:antennas”}, right picture).</p>
-<div class="highlight-center notranslate"><div class="highlight"><pre><span></span>![image](figs/paris.pdf){width=&quot;45%&quot;} ![image](figs/orange.pdf){width=&quot;45%&quot;}
-</pre></div>
-</div>
+<p>::: center
+<img alt="image" src="_images/paris.pdf" />{width=”45%”} <img alt="image" src="_images/orange.pdf" />{width=”45%”}
+:::</p>
 <p>In previous papers, point processes with repulsion have been used to
 model such systems [&#64;Deng2014; &#64;Miyoshi2016; &#64;gomez_case_2015] for no
 reason but a mere resemblance between the pictures like the right
@@ -436,48 +436,48 @@ denote by <span class="math notranslate nohighlight">\(\mathcal B(\mathfrak N)\)
 random variable with values in <span class="math notranslate nohighlight">\(\mathfrak N\)</span> (respectively
 <span class="math notranslate nohighlight">\(\mathfrak N_{f}\)</span>). The distribution of a point process can be described
 through its so-called correlation functions.</p>
-<div class="highlight-{#def:corr notranslate"><div class="highlight"><pre><span></span>**Definition 1**. *Let $\Phi$ be a locally finite point process on $E$.
+<p>::: {#def:corr .definition}
+<strong>Definition 1</strong>. <em>Let <span class="math notranslate nohighlight">\(\Phi\)</span> be a locally finite point process on <span class="math notranslate nohighlight">\(E\)</span>.
 Its correlation functions
-$\rho^{(k)} \colon \mathfrak N_{f} \to \mathbf R_+$ are given for any
-measurable function $f \colon \mathfrak N_{f} \to \mathbf R_+$ by:
-$$\mathbb{E}\left[ \sum_{\substack{\alpha \in \mathfrak N_{f} \\ \alpha \subset \Phi}} f(\alpha) \right] = \sum_{k=1}^{+ \infty} \frac{1}{k!} \int_{(E)^k} f(\{x_1, \dots, x_k\}) \rho^{(k)}(\{x_1, \dots, x_k\}) \, \text{ d}x_1 \ldots \text{ d}x_k .$$*
-</pre></div>
-</div>
+<span class="math notranslate nohighlight">\(\rho^{(k)} \colon \mathfrak N_{f} \to \mathbf R_+\)</span> are given for any
+measurable function <span class="math notranslate nohighlight">\(f \colon \mathfrak N_{f} \to \mathbf R_+\)</span> by:
+$<span class="math notranslate nohighlight">\(\mathbb{E}\left[ \sum_{\substack{\alpha \in \mathfrak N_{f} \\ \alpha \subset \Phi}} f(\alpha) \right] = \sum_{k=1}^{+ \infty} \frac{1}{k!} \int_{(E)^k} f(\{x_1, \dots, x_k\}) \rho^{(k)}(\{x_1, \dots, x_k\}) \, \text{ d}x_1 \ldots \text{ d}x_k .\)</span>$</em>
+:::</p>
 <p>It is however easier to work with the so-called Janossy measures, whose
 links with correlation functions are given in [&#64;Daley2003].</p>
-<div class="highlight-{#def:janossy_mes notranslate"><div class="highlight"><pre><span></span>**Definition 2**. *Let $\Phi$ be a finite point process on $E$. Its
-Janossy measure $J$ is given for any $A \in \mathcal B(\mathfrak N_f)$
+<p>::: {#def:janossy_mes .definition}
+<strong>Definition 2</strong>. <em>Let <span class="math notranslate nohighlight">\(\Phi\)</span> be a finite point process on <span class="math notranslate nohighlight">\(E\)</span>. Its
+Janossy measure <span class="math notranslate nohighlight">\(J\)</span> is given for any <span class="math notranslate nohighlight">\(A \in \mathcal B(\mathfrak N_f)\)</span>
 by:
-$$\mathbb{P}(\Phi \in A) = \sum_{k=1}^{+ \infty} \frac{1}{k!} J(A^{(k)}),$$
+$<span class="math notranslate nohighlight">\(\mathbb{P}(\Phi \in A) = \sum_{k=1}^{+ \infty} \frac{1}{k!} J(A^{(k)}),\)</span><span class="math notranslate nohighlight">\(
 where, for any
-$k \in \mathbf N^*, \; A^{(k)} = \{ \phi \in A,\; \phi(E) = k \}$.*
-</pre></div>
-</div>
-<div class="highlight-{#def:janossy_fun notranslate"><div class="highlight"><pre><span></span>**Definition 3**. *Let $\Phi$ be a finite point process on $E$. It is
-said to be regular if there exist Janossy functions $(j^{(k)}, k\ge 0)$
-such that for any measurable $f\, :\, \mathfrak N_{f}\to \mathbf R^{+}$,
+\)</span>k \in \mathbf N^</em>, ; A^{(k)} = { \phi \in A,; \phi(E) = k }$.*
+:::</p>
+<p>::: {#def:janossy_fun .definition}
+<strong>Definition 3</strong>. <em>Let <span class="math notranslate nohighlight">\(\Phi\)</span> be a finite point process on <span class="math notranslate nohighlight">\(E\)</span>. It is
+said to be regular if there exist Janossy functions <span class="math notranslate nohighlight">\((j^{(k)}, k\ge 0)\)</span>
+such that for any measurable <span class="math notranslate nohighlight">\(f\, :\, \mathfrak N_{f}\to \mathbf R^{+}\)</span>,
 we have
-$$E[ f(\Phi) ] =  \sum_{n\ge 0} \frac{1}{n!} \int_{E^n} f(\{x_1,\dots,x_n\}) \, j^{(n)}(\{x_1,\dots,x_n\})\text{ d}x_1\ldots \text{ d}x_n.$$*
-</pre></div>
-</div>
+$<span class="math notranslate nohighlight">\(E[ f(\Phi) ] =  \sum_{n\ge 0} \frac{1}{n!} \int_{E^n} f(\{x_1,\dots,x_n\}) \, j^{(n)}(\{x_1,\dots,x_n\})\text{ d}x_1\ldots \text{ d}x_n.\)</span>$</em>
+:::</p>
 <p>With this definition in hand, we can define the concept of repulsion ,
 following [&#64;Georgii2005].</p>
-<div class="highlight-{#def:papangelou notranslate"><div class="highlight"><pre><span></span>**Definition 4**. *For $\Phi$ a finite point regular process on $E$ with
-Janossy functions $(j^{(k)},\, k\ge 0)$, its Papangelou intensity $c$ is
-given for any $x \in E$ and $\phi \in \mathfrak N_{f}$ by:
-$$c(x, \phi) = \frac{j^{(k+1)}(\{x\}\cup \phi)}{j^{(k)}(\phi)} \, \mathbf{1}_{\{j^{(k)}(\phi) \ne 0\} } \text{ if } \phi(E)=k.$$*
-</pre></div>
-</div>
+<p>::: {#def:papangelou .definition}
+<strong>Definition 4</strong>. <em>For <span class="math notranslate nohighlight">\(\Phi\)</span> a finite point regular process on <span class="math notranslate nohighlight">\(E\)</span> with
+Janossy functions <span class="math notranslate nohighlight">\((j^{(k)},\, k\ge 0)\)</span>, its Papangelou intensity <span class="math notranslate nohighlight">\(c\)</span> is
+given for any <span class="math notranslate nohighlight">\(x \in E\)</span> and <span class="math notranslate nohighlight">\(\phi \in \mathfrak N_{f}\)</span> by:
+$<span class="math notranslate nohighlight">\(c(x, \phi) = \frac{j^{(k+1)}(\{x\}\cup \phi)}{j^{(k)}(\phi)} \, \mathbf{1}_{\{j^{(k)}(\phi) \ne 0\} } \text{ if } \phi(E)=k.\)</span>$</em>
+:::</p>
 <p>The quantity <span class="math notranslate nohighlight">\(c(x,\phi)\)</span> can be intuitively thought as the probability
 to have a particle at <span class="math notranslate nohighlight">\(x\)</span> given the observation <span class="math notranslate nohighlight">\(\phi\)</span>. Intuitively a
 point process shows repulsion when <span class="math notranslate nohighlight">\(\phi\mapsto c(x,\phi)\)</span> is, in some
 sense, decreasing:</p>
-<div class="highlight-{#def:repulsive notranslate"><div class="highlight"><pre><span></span>**Definition 5**. *A point process $\Phi$ on $E$ with a version $c$ of
+<p>::: {#def:repulsive .definition}
+<strong>Definition 5</strong>. <em>A point process <span class="math notranslate nohighlight">\(\Phi\)</span> on <span class="math notranslate nohighlight">\(E\)</span> with a version <span class="math notranslate nohighlight">\(c\)</span> of
 its Papangelou intensity is said to be repulsive if, for any
-$\omega, \phi \in \mathfrak N_{f}$ such that $\omega \subset \phi$ and
-any $x \in E$, $$c(x,\phi) \le c(x, \omega).$$*
-</pre></div>
-</div>
+<span class="math notranslate nohighlight">\(\omega, \phi \in \mathfrak N_{f}\)</span> such that <span class="math notranslate nohighlight">\(\omega \subset \phi\)</span> and
+any <span class="math notranslate nohighlight">\(x \in E\)</span>, $<span class="math notranslate nohighlight">\(c(x,\phi) \le c(x, \omega).\)</span>$</em>
+:::</p>
 <p>With this definition, it is not hard to see that Gibbs point processes,
 determinantal point processes are repulsive (see
 [&#64;Georgii2005; &#64;HoughDeterminantalprocessesindependence2006]). We will
@@ -486,25 +486,24 @@ we only focus on the so-called Ginibre point process. It has the
 interesting feature that we know its distribution when restricted to a
 compact ball in <span class="math notranslate nohighlight">\(E\)</span>. For reasons which will be self-evident, we identify
 hereafter <span class="math notranslate nohighlight">\(\mathbf R^{2}\)</span> and <span class="math notranslate nohighlight">\(\mathbf C\)</span>.</p>
-<div class="highlight-{#def:ginibre notranslate"><div class="highlight"><pre><span></span>**Definition 6**. *The Ginibre point process with intensity
-$\rho = \frac{\lambda}{\pi}$ (with $\lambda &gt; 0)$ is a locally finite
-point process on $\mathbf C$ that can be defined by its correlation
-functions: $$\label{eq:correlation_functions_determinantal}
- \rho^{(k)}(x_1, \dots, x_k) = \det(K(x_i, x_j), \; 1\le i,j \le k)$$
-where $K$ is given by
-$$K(x,y) = \rho \, e^{-\frac{\lambda}{2}(|x|^2 + |y|^2)}e^{\lambda x \bar{y}},\ \forall \, (x,y) \in \mathbf C^2.$$*
-
-*When restricted to the $B(0,R)$, the Ginibre point process admits
+<p>::: {#def:ginibre .definition}
+<strong>Definition 6</strong>. <em>The Ginibre point process with intensity
+<span class="math notranslate nohighlight">\(\rho = \frac{\lambda}{\pi}\)</span> (with <span class="math notranslate nohighlight">\(\lambda &gt; 0)\)</span> is a locally finite
+point process on <span class="math notranslate nohighlight">\(\mathbf C\)</span> that can be defined by its correlation
+functions: $<span class="math notranslate nohighlight">\(\label{eq:correlation_functions_determinantal}
+ \rho^{(k)}(x_1, \dots, x_k) = \det(K(x_i, x_j), \; 1\le i,j \le k)\)</span><span class="math notranslate nohighlight">\(
+where \)</span>K<span class="math notranslate nohighlight">\( is given by
+\)</span><span class="math notranslate nohighlight">\(K(x,y) = \rho \, e^{-\frac{\lambda}{2}(|x|^2 + |y|^2)}e^{\lambda x \bar{y}},\ \forall \, (x,y) \in \mathbf C^2.\)</span>$</em></p>
+<p><em>When restricted to the <span class="math notranslate nohighlight">\(B(0,R)\)</span>, the Ginibre point process admits
 correlation functions of the
-form [\[eq:correlation_functions_determinantal\]](#eq:correlation_functions_determinantal){reference-type=&quot;ref&quot;
-reference=&quot;eq:correlation_functions_determinantal&quot;} with $K=K_R$ given
-by $$\label{eq_main:1}
-    K_R(x,y)=\sum_{j=1}^\infty \frac{\gamma(j+1,R^2)}{j!} \phi_j(x)\phi_j(\bar y)$$
+form <a class="reference external" href="#eq:correlation_functions_determinantal">[eq:correlation_functions_determinantal]</a>{reference-type=”ref”
+reference=”eq:correlation_functions_determinantal”} with <span class="math notranslate nohighlight">\(K=K_R\)</span> given
+by $<span class="math notranslate nohighlight">\(\label{eq_main:1}
+    K_R(x,y)=\sum_{j=1}^\infty \frac{\gamma(j+1,R^2)}{j!} \phi_j(x)\phi_j(\bar y)\)</span><span class="math notranslate nohighlight">\(
 with
-$$\phi_j(x)=\sqrt{\frac{\rho}{\gamma(j+1,R^2)}} \left(\sqrt{\lambda}x\right)^j\, e^{-\frac{\lambda}{2} |x|^2}.$$
-and $\gamma(n,x)$ is the lower incomplete Gamma function.*
-</pre></div>
-</div>
+\)</span><span class="math notranslate nohighlight">\(\phi_j(x)=\sqrt{\frac{\rho}{\gamma(j+1,R^2)}} \left(\sqrt{\lambda}x\right)^j\, e^{-\frac{\lambda}{2} |x|^2}.\)</span><span class="math notranslate nohighlight">\(
+and \)</span>\gamma(n,x)$ is the lower incomplete Gamma function.</em>
+:::</p>
 <p>The simulation of such a point process is a delicate matter, first
 solved in [&#64;HoughDeterminantalprocessesindependence2006]. It remains
 costly because the algorithm contains complex calculations and some
@@ -532,11 +531,11 @@ associated to a stationary Poisson process in \)</span>\mathbf C<span class="mat
 \)</span>\lambda<span class="math notranslate nohighlight">\( (respectively to the Ginibre point process of intensity
 \)</span>\rho$). One of the main theorems of [&#64;goldman_palm_2010] is the
 following.</p>
-<div class="highlight-{#thm:goldman notranslate"><div class="highlight"><pre><span></span>**Theorem 1**. *When $r \to 0,$
-$$\mathbb{E} \left[ V(\mathcal{C}_{G} \cap B(0,r)) \right] = \mathbb{E} \left[ V(\mathcal{C}_p \cap B(0,r)) \right] (1 + r^2 W + \circ(r^2))$$
-where $W$ is a positive random variable.*
-</pre></div>
-</div>
+<p>::: {#thm:goldman .theorem}
+<strong>Theorem 1</strong>. <em>When <span class="math notranslate nohighlight">\(r \to 0,\)</span>
+$<span class="math notranslate nohighlight">\(\mathbb{E} \left[ V(\mathcal{C}_{G} \cap B(0,r)) \right] = \mathbb{E} \left[ V(\mathcal{C}_p \cap B(0,r)) \right] (1 + r^2 W + \circ(r^2))\)</span><span class="math notranslate nohighlight">\(
+where \)</span>W$ is a positive random variable.</em>
+:::</p>
 <p>This theorem shows that near the germs of the cells a more important
 part of the area is captured in the Ginibre–Voronoi tessellation than
 in the Poisson–Voronoi tessellation. This is an indication that the
