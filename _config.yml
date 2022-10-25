@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: Point process discrimination according to repulsion
+author: H. Adrat and L. Decreusefond
 logo: logo.png
 
 bibtex_bibfiles: references.bib
@@ -34,4 +34,10 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - amsmath
-    - amsthm
+    - dollarmath
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+    #- sphinx_tojupyter
+    - sphinx_jupyterbook_latex
