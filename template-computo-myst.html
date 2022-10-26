@@ -290,21 +290,36 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Point process discrimination according to repulsion
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#abstract">
-     Abstract
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-another-subheading">
+     This is another subheading
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
   </a>
  </li>
 </ul>
@@ -326,21 +341,36 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Point process discrimination according to repulsion
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstract">
+   Abstract
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#abstract">
-     Abstract
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preliminaries">
+   Preliminaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-another-subheading">
+     This is another subheading
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusion">
+   Conclusion
   </a>
  </li>
 </ul>
@@ -357,28 +387,154 @@ title="Print to PDF"
 <h1>Point process discrimination according to repulsion<a class="headerlink" href="#point-process-discrimination-according-to-repulsion" title="Permalink to this headline">#</a></h1>
 <section id="abstract">
 <h2>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">#</a></h2>
-<p>In numerous applications, cloud of points do seem to exhibit {repulsion} in the intuitive sense that there is no local cluster as in a Poisson process. Motivated by data coming from cellular networks, we devise a classification algorithm based on the form of the Voronoi cells. We show that, for data  representing the locations of antennas in a cellular networks, we can retrieve some repulsion between antennas, a feature that  was expected for engineering reasons.</p>
+<p>In numerous applications, cloud of points do seem to exhibit <em>repulsion</em> in the intuitive sense that there is no local cluster as in a Poisson process. Motivated by data coming from cellular networks, we devise a classification algorithm based on the form of the Voronoi cells. We show that, in the particular set of data we are given, we can retrieve some repulsiveness between antennas, which was expected for engineering reasons.</p>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<p>In the performance analysis of cellular systems, the locations of antennas (or base stations) play a major role (see <span id="id1">[<a class="reference internal" href="#id141" title="F. Baccelli and B. Błaszczyszyn. Stochastic Geometry and Wireless Networks: Volume I Theory. Foundations and Trends® in Networking, 3(3–4):249–449, 2008. doi:10.1561/1300000006.">1</a>]</span>). It is usually admitted that they can be modeled by a Poisson process. But the data which can be gathered from the Web site of the French National Agency of Radio Frequencies, Cartoradio, see <span id="id2">[<a class="reference internal" href="#id4" title="ANFR. Https://www.cartoradio.fr. URL: https://www.cartoradio.fr.">2</a>]</span>, tend to prove that this may not be the case. More precisely, if we look at the global picture of all antennas in Paris, we see features reminiscent of a Poisson process (local clusters for instance), see Figure~\ref{fig:antennas}. However, if we look closer and finer, by specifying a region and a frequency band, we see that the antennas locations do seem to exhibit some repulsion (see Figure~\ref{fig:antennas}, right picture).</p>
-<p><strong>Definition</strong>
-Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> zwei Wege. Falls eine Zerlegung <span class="math notranslate nohighlight">\((a=t_0,\ldots,b=t_N)\)</span> existiert mit Kreisscheiben <span class="math notranslate nohighlight">\(B^j\)</span>, welche zulässig für beide Wege ist, d.h.,</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>In the performance analysis of cellular systems, the locations of antennas (or base stations) play a major role (see <span id="id1">[<a class="reference internal" href="#id147" title="F. Baccelli and B. Błaszczyszyn. Stochastic Geometry and Wireless Networks: Volume I Theory. Foundations and Trends® in Networking, 3(3–4):249–449, 2008. doi:10.1561/1300000006.">1</a>]</span>). It is usually admitted that they can be modeled by a Poisson process. But the data which can be gathered from the Web site of the French National Agency of Radio Frequencies, Cartoradio, see <span id="id2">[<a class="reference internal" href="#id10" title="ANFR. Https://www.cartoradio.fr. URL: https://www.cartoradio.fr.">2</a>]</span>, tend to prove that this may not be the case. More precisely, if we look at the global picture of all antennas in Paris, we see features reminiscent of a Poisson process (local clusters for instance), see <a class="reference internal" href="#paris-orange-fig"><span class="std std-numref">Fig. 1</span></a>(left). However, if we look closer and finer, by specifying a region and a frequency band, we see that the antennas locations do seem to exhibit some repulsion (see <a class="reference internal" href="#paris-orange-fig"><span class="std std-numref">Fig. 1</span></a>, right picture).</p>
+<figure class="align-default" id="paris-orange-fig">
+<img alt="paris-orange.png" src="paris-orange.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Left: Antennas in Paris. Right: Antennas in one frequency  band only</span><a class="headerlink" href="#paris-orange-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In previous papers, point processes with repulsion have been used to model such systems . The question is then to decide, given one sample of positions of base stations in a bounded domain, whether it is more likely to be modeled by a point process with repulsion or by a <em>neutral</em> point process, i.e. where the locations are independent. As we only have a single realization, we cannot use frequency methods. Since the observation window is finite, we cannot either resort to estimates based on stationarity or ergodicity and we must take care from the side effects.</p>
+<p>In previous papers, point processes with repulsion have been used to model such systems <span id="id3">[<a class="reference internal" href="#id787" title="Na Deng, Wuyang Zhou, and Martin Haenggi. The ginibre point process as a model for wireless networks with repulsion. IEEE transactions on Wireless Communications, 2015. arXiv:1401.3677v1.">3</a>]</span>, <span id="id4">[<a class="reference internal" href="#id809" title="Naoto Miyoshi and Tomoyuki Shirai. Spatial modeling and analysis of cellular networks using the Ginibre point process: a tutorial. IEICE Transactions on Communications, E99.B(11):2247–2255, 2016. doi:10.1587/transcom.2016nei0001.">4</a>]</span>, <span id="id5">[<a class="reference internal" href="#id788">5</a>]</span> for no reason but a mere resemblance between the pictures like the right picture in <a class="reference internal" href="#paris-orange-fig"><span class="std std-numref">Fig. 1</span></a> and those obtained by simulating a point process with repulsion. The question is then to decide, given one sample of positions of base stations in a bounded domain, whether it is more likely to be modeled by a point process with repulsion or by a <em>neutral</em> point process, i.e. where the locations could be considered as coming from independent drawings of some identically distributed random variables. As we only have a single realization,  we cannot use frequency methods. Since the observation window is finite, we cannot either resort to estimates based on stationarity or ergodicity and  we must take care from the side effects.</p>
+<p>The rationale behind our work comes from <span id="id6">[<a class="reference internal" href="#id506" title="André Goldman. The Palm measure and the Voronoi tessellation for the Ginibre process. The Annals of Applied Probability, 20(1):90–128, February 2010. arXiv:math/0610243, doi:10.1214/09-AAP620.">6</a>]</span>. It is shown there  that the Voronoi cells of the Ginibre point process (a particular point process with repulsion, see below for the exact definition) are in some sense more regular (closer to a circle) than those of a Poisson process (see Theorem later!). By simulation, this feature seem to persist for other point processes with repulsion, like Gibbs processes. It is this aspect that we use to construct our classification algorithm.
+We will simulate several configurations (repulsive and non-repulsive) with the same given  number of points <span class="math notranslate nohighlight">\(N\)</span>. For each configuration, we will compute the Voronoi diagrams and construct two vectors which will represent the input of our algorithm; an area vector containing the areas of the <span class="math notranslate nohighlight">\(10\)</span> innermost Voronoi cells in order to avoid edge effects, plus <span class="math notranslate nohighlight">\(4\)</span> other average areas from <span class="math notranslate nohighlight">\(20\)</span> cells to have more information on the configuration. And a second perimeter vector which is constructed in the same way, containing the squared perimeters of the corresponding Voronoi cells.
+The choice of areas and square perimeters as aspects to our classification task is based on the *isoperimetric inequality in <span class="math notranslate nohighlight">\(\mathbf{R}^2\)</span> that states, for the length <span class="math notranslate nohighlight">\(P\)</span> of a closed curve and the area <span class="math notranslate nohighlight">\(A\)</span> of the planar region that it encloses, that</p>
 <div class="math notranslate nohighlight">
 \[
-\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j
+:label: isoperimetric_inequality
+P^2 \ge 4 \pi A
 \]</div>
-<div class="docutils container" id="id3">
+<p>and that equality holds if and only if the curve is a circle. After normalization, we test some classical ML models (logistic regression, random forest, support vector machine, XGBoost) to classify between repulsive and neutral point processes. The results are surprisingly good even though we trained our models only on Ginibre point processes to represent the whole family of point processes with repulsion.</p>
+<p>This paper is organized as follows. We first recall the theoretical notions that we will need in the rest of this paper. We will also briefly define the Papangelou intensity which is at the core of the definition of repulsion. In section 3 we show numerically, and based on two Machine Learning classification models, how the locations of antennas in Paris can be considered as repulsive configurations.</p>
+<p>This document provides a Myst template for contributions to the <strong>Computo</strong>
+Journal <span id="id7">[]</span>. We show how <code class="docutils literal notranslate"><span class="pre">Python</span></code> <span id="id8">[]</span>, <code class="docutils literal notranslate"><span class="pre">R</span></code>, or <code class="docutils literal notranslate"><span class="pre">Julia</span></code> code can be included.
+Note that you can also add equations easily:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum x + y = Z
+\]</div>
+<p>You can also add equations in such a way to be able to reference them later:</p>
+<div class="math notranslate nohighlight" id="equation-math">
+<span class="eqno">(1)<a class="headerlink" href="#equation-math" title="Permalink to this equation">#</a></span>\[w_{t+1} = (1 + r_{t+1}) s(w_t) + y_{t+1}\]</div>
+<p>See equation <a class="reference internal" href="#equation-math">(1)</a> for details.</p>
+</section>
+<section id="preliminaries">
+<h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">#</a></h2>
+<p>A configuration on <span class="math notranslate nohighlight">\(E=\mathbf R^2\)</span> is a locally finite (respectively finite) subset of <span class="math notranslate nohighlight">\(E\)</span>. The space of configurations (respectively finite configurations) is denoted <span class="math notranslate nohighlight">\(\mathfrak N\)</span> (respectively <span class="math notranslate nohighlight">\(\mathfrak N_{f}\)</span>). We equip <span class="math notranslate nohighlight">\(\mathfrak N\)</span> with the topology of vague convergence, under which it is a complete, separable, metric space. We denote by <span class="math notranslate nohighlight">\(\mathcal B(\mathfrak N)\)</span> the Borelean <span class="math notranslate nohighlight">\(\sigma\)</span>-field on <span class="math notranslate nohighlight">\(\mathfrak N\)</span>. A locally finite (respectively finite) point process is a random variable with values in <span class="math notranslate nohighlight">\(\mathfrak N\)</span> (respectively <span class="math notranslate nohighlight">\(\mathfrak N_{f}\)</span>).</p>
+<div class="cell tag_show-output tag_show-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f18c8a69eb0&gt;]
+</pre></div>
+</div>
+<img alt="_images/template-computo-myst_1_1.png" src="_images/template-computo-myst_1_1.png" />
+</div>
+</div>
+<p>FIXME: Can we reference figures?</p>
+<section id="this-is-another-subheading">
+<span id="subsec-subheading"></span><h3>This is another subheading<a class="headerlink" href="#this-is-another-subheading" title="Permalink to this headline">#</a></h3>
+<p>As seen in <span class="xref myst">section</span>, lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Cras nec ornare urna. Nullam consectetur
+vestibulum lacinia. Aenean sed augue elit. Aenean venenatis orci ut felis
+condimentum, sit amet feugiat eros tincidunt. Vestibulum ante ipsum primis in
+faucibus orci luctus et ultrices posuere cubilia curae; Integer varius metus
+nunc, at molestie metus eleifend et. Maecenas ullamcorper metus at nisl
+molestie, ac commodo arcu mollis. Donec felis odio, fermentum lacinia
+vestibulum non, elementum eu metus. Donec suscipit aliquam malesuada. Praesent
+justo turpis, dignissim ac nulla non, malesuada rutrum nisi.</p>
+<table class="colwidths-auto table" id="my-table-ref">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">My table title</span><a class="headerlink" href="#my-table-ref" title="Permalink to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tables</p></th>
+<th class="text-align:center head"><p>Are</p></th>
+<th class="text-align:right head"><p>Cool</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>col 1 is</p></td>
+<td class="text-align:center"><p>left-aligned</p></td>
+<td class="text-align:right"><p>$1600</p></td>
+</tr>
+<tr class="row-odd"><td><p>col 2 is</p></td>
+<td class="text-align:center"><p>centered</p></td>
+<td class="text-align:right"><p>$12</p></td>
+</tr>
+<tr class="row-even"><td><p>col 3 is</p></td>
+<td class="text-align:center"><p>right-aligned</p></td>
+<td class="text-align:right"><p>$1</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now we can reference the table in the text (See <a class="reference internal" href="#my-table-ref"><span class="std std-ref">My table title</span></a>).</p>
+</section>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">#</a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam
+porttitor rutrum. Donec in sollicitudin risus, ultrices ultricies nisi.
+Vestibulum vel turpis eros. Suspendisse pellentesque nunc augue, eget laoreet
+dui dictum ut. Mauris pretium lectus ut elit pulvinar, nec accumsan purus
+hendrerit. Phasellus hendrerit orci a vestibulum euismod. Nunc vel massa
+facilisis, cursus justo nec, suscipit est.</p>
+<ul class="simple">
+<li><p>This is a list</p></li>
+<li><p>With more elements</p></li>
+<li><p>It isn’t numbered.</p></li>
+</ul>
+<p>But we can also do a numbered list</p>
+<ol class="simple">
+<li><p>This is my first item</p></li>
+<li><p>This is my second item</p></li>
+<li><p>This is my third item</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie mollis
+urna, vitae convallis turpis placerat vel. Orci varius natoque penatibus et
+magnis dis parturient montes, nascetur ridiculus mus. Vestibulum elit nulla,
+laoreet a sagittis non, pharetra ac velit. Aliquam volutpat nisl augue, eget
+maximus erat cursus eget. Maecenas sed nisi bibendum, sagittis tellus et,
+lacinia augue. In lobortis, libero at auctor aliquam, mi leo egestas orci, a
+pulvinar mauris magna in nisi. Morbi cursus dictum dignissim. Fusce at ex sit
+amet felis vehicula gravida non in sem. Morbi ut condimentum diam. Aliquam
+erat volutpat. Fusce id pharetra ante, tincidunt dapibus eros. Curabitur
+mattis magna non felis aliquet sagittis.</p>
+<div class="docutils container" id="id9">
 <dl class="citation">
-<dt class="label" id="id141"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dt class="label" id="id147"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>F. Baccelli and B. Błaszczyszyn. Stochastic Geometry and Wireless Networks: Volume I Theory. <em>Foundations and Trends® in Networking</em>, 3(3–4):249–449, 2008. <a class="reference external" href="https://doi.org/10.1561/1300000006">doi:10.1561/1300000006</a>.</p>
 </dd>
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>ANFR. Https://www.cartoradio.fr. URL: <a class="reference external" href="https://www.cartoradio.fr">https://www.cartoradio.fr</a>.</p>
+</dd>
+<dt class="label" id="id787"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Na Deng, Wuyang Zhou, and Martin Haenggi. The ginibre point process as a model for wireless networks with repulsion. <em>IEEE transactions on Wireless Communications</em>, 2015. <a class="reference external" href="https://arxiv.org/abs/1401.3677v1">arXiv:1401.3677v1</a>.</p>
+</dd>
+<dt class="label" id="id809"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Naoto Miyoshi and Tomoyuki Shirai. Spatial modeling and analysis of cellular networks using the Ginibre point process: a tutorial. <em>IEICE Transactions on Communications</em>, E99.B(11):2247–2255, 2016. <a class="reference external" href="https://doi.org/10.1587/transcom.2016nei0001">doi:10.1587/transcom.2016nei0001</a>.</p>
+</dd>
+<dt class="label" id="id788"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p><strong>missing year in Gomez2015</strong></p>
+</dd>
+<dt class="label" id="id506"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>André Goldman. The Palm measure and the Voronoi tessellation for the Ginibre process. <em>The Annals of Applied Probability</em>, 20(1):90–128, February 2010. <a class="reference external" href="https://arxiv.org/abs/math/0610243">arXiv:math/0610243</a>, <a class="reference external" href="https://doi.org/10.1214/09-AAP620">doi:10.1214/09-AAP620</a>.</p>
 </dd>
 </dl>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

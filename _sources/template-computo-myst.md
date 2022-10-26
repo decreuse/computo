@@ -1,6 +1,7 @@
 ---
 title: "Point process discrimination according to repulsion"
-author: "H. Adrat and L. Decreusefond"
+# subtitle: "Example based on the myst system"
+author: "Hamza ADRAT and Laurent DECREUSEFOND"
 jupytext:
   text_representation:
     extension: .md
@@ -10,25 +11,130 @@ kernelspec:
   language: python
   name: python3
 ---
+
 # Point process discrimination according to repulsion
 
 ## Abstract
+In numerous applications, cloud of points do seem to exhibit *repulsion* in the intuitive sense that there is no local cluster as in a Poisson process. Motivated by data coming from cellular networks, we devise a classification algorithm based on the form of the Voronoi cells. We show that, in the particular set of data we are given, we can retrieve some repulsiveness between antennas, which was expected for engineering reasons.
 
-In numerous applications, cloud of points do seem to exhibit {repulsion} in the intuitive sense that there is no local cluster as in a Poisson process. Motivated by data coming from cellular networks, we devise a classification algorithm based on the form of the Voronoi cells. We show that, for data  representing the locations of antennas in a cellular networks, we can retrieve some repulsion between antennas, a feature that  was expected for engineering reasons.
- 
-# Introduction
+## Introduction
+In the performance analysis of cellular systems, the locations of antennas (or base stations) play a major role (see {cite}`BaccelliStochasticGeometryWireless2008`). It is usually admitted that they can be modeled by a Poisson process. But the data which can be gathered from the Web site of the French National Agency of Radio Frequencies, Cartoradio, see {cite}`ANFR`, tend to prove that this may not be the case. More precisely, if we look at the global picture of all antennas in Paris, we see features reminiscent of a Poisson process (local clusters for instance), see {numref}`paris-orange-fig`(left). However, if we look closer and finer, by specifying a region and a frequency band, we see that the antennas locations do seem to exhibit some repulsion (see {numref}`paris-orange-fig`, right picture).
 
-In the performance analysis of cellular systems, the locations of antennas (or base stations) play a major role (see {cite}`BaccelliStochasticGeometryWireless2008`). It is usually admitted that they can be modeled by a Poisson process. But the data which can be gathered from the Web site of the French National Agency of Radio Frequencies, Cartoradio, see {cite}`ANFR`, tend to prove that this may not be the case. More precisely, if we look at the global picture of all antennas in Paris, we see features reminiscent of a Poisson process (local clusters for instance), see Figure~\ref{fig:antennas}. However, if we look closer and finer, by specifying a region and a frequency band, we see that the antennas locations do seem to exhibit some repulsion (see Figure~\ref{fig:antennas}, right picture). 
+```{figure} /paris-orange.png
+---
+name: paris-orange-fig
+---
+Left: Antennas in Paris. Right: Antennas in one frequency  band only
+```
 
-**Definition**
-Es sei $U\subset \C$ offen und seien $\gamma_0,\gamma_1:[a,b]\to U$ zwei Wege. Falls eine Zerlegung $(a=t_0,\ldots,b=t_N)$ existiert mit Kreisscheiben $B^j$, welche zulässig für beide Wege ist, d.h.,
+In previous papers, point processes with repulsion have been used to model such systems . The question is then to decide, given one sample of positions of base stations in a bounded domain, whether it is more likely to be modeled by a point process with repulsion or by a *neutral* point process, i.e. where the locations are independent. As we only have a single realization, we cannot use frequency methods. Since the observation window is finite, we cannot either resort to estimates based on stationarity or ergodicity and we must take care from the side effects.
+
+In previous papers, point processes with repulsion have been used to model such systems {cite}`Deng2014`, {cite}`Miyoshi2016`, {cite}`Gomez2015` for no reason but a mere resemblance between the pictures like the right picture in {numref}`paris-orange-fig` and those obtained by simulating a point process with repulsion. The question is then to decide, given one sample of positions of base stations in a bounded domain, whether it is more likely to be modeled by a point process with repulsion or by a *neutral* point process, i.e. where the locations could be considered as coming from independent drawings of some identically distributed random variables. As we only have a single realization,  we cannot use frequency methods. Since the observation window is finite, we cannot either resort to estimates based on stationarity or ergodicity and  we must take care from the side effects.
+
+The rationale behind our work comes from {cite}`goldman_palm_2010`. It is shown there  that the Voronoi cells of the Ginibre point process (a particular point process with repulsion, see below for the exact definition) are in some sense more regular (closer to a circle) than those of a Poisson process (see Theorem later!). By simulation, this feature seem to persist for other point processes with repulsion, like Gibbs processes. It is this aspect that we use to construct our classification algorithm.
+We will simulate several configurations (repulsive and non-repulsive) with the same given  number of points $N$. For each configuration, we will compute the Voronoi diagrams and construct two vectors which will represent the input of our algorithm; an area vector containing the areas of the $10$ innermost Voronoi cells in order to avoid edge effects, plus $4$ other average areas from $20$ cells to have more information on the configuration. And a second perimeter vector which is constructed in the same way, containing the squared perimeters of the corresponding Voronoi cells.
+The choice of areas and square perimeters as aspects to our classification task is based on the *isoperimetric inequality in $\mathbf{R}^2$ that states, for the length $P$ of a closed curve and the area $A$ of the planar region that it encloses, that
 
 $$
-\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j
+:label: isoperimetric_inequality
+P^2 \ge 4 \pi A
 $$
 
+and that equality holds if and only if the curve is a circle. After normalization, we test some classical ML models (logistic regression, random forest, support vector machine, XGBoost) to classify between repulsive and neutral point processes. The results are surprisingly good even though we trained our models only on Ginibre point processes to represent the whole family of point processes with repulsion.
+
+This paper is organized as follows. We first recall the theoretical notions that we will need in the rest of this paper. We will also briefly define the Papangelou intensity which is at the core of the definition of repulsion. In section 3 we show numerically, and based on two Machine Learning classification models, how the locations of antennas in Paris can be considered as repulsive configurations.
+
+This document provides a Myst template for contributions to the **Computo**
+Journal {cite}`computo`. We show how `Python` {cite}`perez2011python`, `R`, or `Julia` code can be included.
+Note that you can also add equations easily:
+
+$$
+\sum x + y = Z
+$$
+
+You can also add equations in such a way to be able to reference them later:
+
+```{math}
+:label: math
+w_{t+1} = (1 + r_{t+1}) s(w_t) + y_{t+1}
+```
+
+See equation {eq}`math` for details.
+
+## Preliminaries
+
+ A configuration on $E=\mathbf R^2$ is a locally finite (respectively finite) subset of $E$. The space of configurations (respectively finite configurations) is denoted $\mathfrak N$ (respectively $\mathfrak N_{f}$). We equip $\mathfrak N$ with the topology of vague convergence, under which it is a complete, separable, metric space. We denote by $\mathcal B(\mathfrak N)$ the Borelean $\sigma$-field on $\mathfrak N$. A locally finite (respectively finite) point process is a random variable with values in $\mathfrak N$ (respectively $\mathfrak N_{f}$).
+
+```{code-cell} python3
+---
+tags: [show-output, show-input]
+---
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots()
+ax.plot(np.arange(10))
+```
+
+FIXME: Can we reference figures?
+
+(subsec:subheading)=
+### This is another subheading
+
+As seen in [section](subsec:this-is-a-subheading), lorem ipsum dolor sit amet,
+consectetur adipiscing elit. Cras nec ornare urna. Nullam consectetur
+vestibulum lacinia. Aenean sed augue elit. Aenean venenatis orci ut felis
+condimentum, sit amet feugiat eros tincidunt. Vestibulum ante ipsum primis in
+faucibus orci luctus et ultrices posuere cubilia curae; Integer varius metus
+nunc, at molestie metus eleifend et. Maecenas ullamcorper metus at nisl
+molestie, ac commodo arcu mollis. Donec felis odio, fermentum lacinia
+vestibulum non, elementum eu metus. Donec suscipit aliquam malesuada. Praesent
+justo turpis, dignissim ac nulla non, malesuada rutrum nisi.
+
+```{table} My table title
+:name: my-table-ref
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+```
+
+Now we can reference the table in the text (See {ref}`my-table-ref`).
 
 
+## Discussion
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquam
+porttitor rutrum. Donec in sollicitudin risus, ultrices ultricies nisi.
+Vestibulum vel turpis eros. Suspendisse pellentesque nunc augue, eget laoreet
+dui dictum ut. Mauris pretium lectus ut elit pulvinar, nec accumsan purus
+hendrerit. Phasellus hendrerit orci a vestibulum euismod. Nunc vel massa
+facilisis, cursus justo nec, suscipit est. 
+
+- This is a list
+- With more elements
+- It isn't numbered.
+
+But we can also do a numbered list
+
+1. This is my first item
+2. This is my second item
+3. This is my third item
+
+## Conclusion
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie mollis
+urna, vitae convallis turpis placerat vel. Orci varius natoque penatibus et
+magnis dis parturient montes, nascetur ridiculus mus. Vestibulum elit nulla,
+laoreet a sagittis non, pharetra ac velit. Aliquam volutpat nisl augue, eget
+maximus erat cursus eget. Maecenas sed nisi bibendum, sagittis tellus et,
+lacinia augue. In lobortis, libero at auctor aliquam, mi leo egestas orci, a
+pulvinar mauris magna in nisi. Morbi cursus dictum dignissim. Fusce at ex sit
+amet felis vehicula gravida non in sem. Morbi ut condimentum diam. Aliquam
+erat volutpat. Fusce id pharetra ante, tincidunt dapibus eros. Curabitur
+mattis magna non felis aliquet sagittis. 
 
 ```{bibliography}
 :style: unsrt
