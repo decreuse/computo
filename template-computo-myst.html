@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -361,7 +363,12 @@ title="Print to PDF"
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>In the performance analysis of cellular systems, the locations of antennas (or base stations) play a major role (see <span id="id1">[<a class="reference internal" href="#id141" title="F. Baccelli and B. Błaszczyszyn. Stochastic Geometry and Wireless Networks: Volume I Theory. Foundations and Trends® in Networking, 3(3–4):249–449, 2008. doi:10.1561/1300000006.">1</a>]</span>). It is usually admitted that they can be modeled by a Poisson process. But the data which can be gathered from the Web site of the French National Agency of Radio Frequencies, Cartoradio, see <span id="id2">[<a class="reference internal" href="#id4" title="ANFR. Https://www.cartoradio.fr. URL: https://www.cartoradio.fr.">2</a>]</span>, tend to prove that this may not be the case. More precisely, if we look at the global picture of all antennas in Paris, we see features reminiscent of a Poisson process (local clusters for instance), see Figure~\ref{fig:antennas}. However, if we look closer and finer, by specifying a region and a frequency band, we see that the antennas locations do seem to exhibit some repulsion (see Figure~\ref{fig:antennas}, right picture).</p>
-<p>Für benachbarte Wege erhalten wir nun das folgende Resultat, welches eine Vorstufe zum Integralsatz von Cauchy darstellt.</p>
+<p><strong>Definition</strong>
+Es sei <span class="math notranslate nohighlight">\(U\subset \C\)</span> offen und seien <span class="math notranslate nohighlight">\(\gamma_0,\gamma_1:[a,b]\to U\)</span> zwei Wege. Falls eine Zerlegung <span class="math notranslate nohighlight">\((a=t_0,\ldots,b=t_N)\)</span> existiert mit Kreisscheiben <span class="math notranslate nohighlight">\(B^j\)</span>, welche zulässig für beide Wege ist, d.h.,</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_0([t_j, t_{j+1}])\cup \gamma_1([t_j,t_{j+1}]) \subset B^j
+\]</div>
 <div class="docutils container" id="id3">
 <dl class="citation">
 <dt class="label" id="id141"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
